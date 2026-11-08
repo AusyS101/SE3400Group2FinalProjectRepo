@@ -1,3 +1,5 @@
+Each of these prompts had some back and forth with claude when making plans, but only the main prompt was preserved.
+
 ### Prompt 1
 
 Build a high-fidelity, functional prototype of the touchscreen console on a treadmill. Build
@@ -46,3 +48,19 @@ password, expired pairing code, video fails to load, failed save).
 Style: dark, high-contrast, large touch targets, a landscape 16:10 screen, with polished
 micro-interactions. Keep it simple; no other APIs or features. Include a README with local
 setup and Vercel/Neon deployment steps.
+
+### Prompt 2
+
+Update the working across the app to be consistent and easy to understand. Each button on the main page should have a clear reason to pick it, and the little descriptions should not be there. each button has simple text and an icon, just like milestone3 task 2.
+
+### Prompt 3
+
+update the UI across this app to match what is found in the home page. The buttons and information should be clear enough that there is no need for any descriptions or extra text. It can just be the main text and an optional icon. Refer to the milestone3 document to understand how styling should look. Some areas to pay close attention to are the workouts page that show the workout difficulties. Have these buttons displayed in a cleaner and more intentional way instead of being pushed to the left. The actual workout page should have the information on the sides of the screen, but the boxes shouldnt be so big. the text in the top right corner saying "in motion" is unnecessary. make changes like these across the app.
+
+### Prompt 4
+
+update the flow of choosing and starting a workout so the screens connect in a more natural way. After choosing a workout and difficulty, let the user pick a map instead of always opening Forest Trail. keep their choices when moving between these screens, and have the back buttons return to the screen they came from. Before the workout has started, let them go back and change their choices without having to end the workout. Show the selected workout and difficulty alongside the map name so they know what they picked. Keep the styling simple and consistent with the home page, just like milestone3 task 2
+
+### Prompt 5
+
+update the flow of ending and saving a workout so the user always knows what is happening. When the end workout or power off confirmation is open, pause the workout and only resume it if they cancel and it was running before. On the summary page, make it clear when the workout is saving, saved, or failed to save, and let them retry if it fails. If a guest leaves without saving, ask if they want to sign in and save or discard the workout. After signing in, make sure their workout history and favorite maps are loaded right away. Keep the buttons and messages simple and consistent with the rest of the app

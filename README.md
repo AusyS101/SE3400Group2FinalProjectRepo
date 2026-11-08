@@ -2,7 +2,7 @@
 
 A prototype for our automated workout routine web app. Work in progress.
 
-**Live Site:** Coming soon.
+**Live Site:** https://se-3400-group2-final-project-repo.vercel.app/
 
 **Tech Stack:** Next.js, React, TypeScript, Tailwind CSS; Neon Postgres when connected.
 

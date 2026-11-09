@@ -64,3 +64,7 @@ update the flow of choosing and starting a workout so the screens connect in a m
 ### Prompt 5
 
 update the flow of ending and saving a workout so the user always knows what is happening. When the end workout or power off confirmation is open, pause the workout and only resume it if they cancel and it was running before. On the summary page, make it clear when the workout is saving, saved, or failed to save, and let them retry if it fails. If a guest leaves without saving, ask if they want to sign in and save or discard the workout. After signing in, make sure their workout history and favorite maps are loaded right away. Keep the buttons and messages simple and consistent with the rest of the app
+
+### Prompt 6
+
+update the phone login flow so each step is clear and easy to follow. After scanning the QR code, show the sign in form only if the user isnt already signed in on their phone. Once signed in, replace the form with their account name and an Approve console button. After approval, show a simple connected screen telling them to return to the treadmill. On the console, load their profile and return them to where they were, including the workout summary if they signed in to save. Show how much time is left before the QR code expires, and replace expired codes with a clear Generate new code button. Handle invalid or already used links with a simple message explaining how to scan a fresh code. Keep the phone page focused on connecting, without the console navigation or power controls.

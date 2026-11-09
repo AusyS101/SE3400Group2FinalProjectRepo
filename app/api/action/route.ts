@@ -20,8 +20,9 @@ export async function POST(req:NextRequest){
  return login(u);
  }
  if(b.action==='logout'){s.sessions=s.sessions.filter(x=>x.token!==hash(token));s.pairs=s.pairs.filter(x=>x.secret!==b.secret);cookie='';return {}}
- if(b.action==='pairCreate'){const code=randomBytes(24).toString('hex'),secret=randomBytes(24).toString('hex');s.pairs.push({code,secret,expires:Date.now()+300000});return {code,secret}}
- if(b.action==='pairApprove'){if(!user)throw Error('Sign in first.');const p=s.pairs.find(x=>x.code===b.code&&x.expires>Date.now()&&!x.used);if(!p)throw Error('Pairing code expired or already used.');p.user=user.id;return {}}
+ if(b.action==='pairCreate'){const code=randomBytes(24).toString('hex'),secret=randomBytes(24).toString('hex'),expires=Date.now()+300000;s.pairs.push({code,secret,expires});return {code,secret,expires}}
+ if(b.action==='pairInfo'){const p=s.pairs.find(x=>x.code===b.code);if(!p||p.used||p.expires<Date.now())throw Error('This link is no longer valid. Scan a fresh code from the treadmill.');return {expires:p.expires}}
+ if(b.action==='pairApprove'){if(!user)throw Error('Sign in first.');const p=s.pairs.find(x=>x.code===b.code&&x.expires>Date.now()&&!x.used);if(!p)throw Error('This link is no longer valid. Scan a fresh code from the treadmill.');if(p.user&&p.user!==user.id)throw Error('This code was already used by another phone.');p.user=user.id;return {}}
  if(b.action==='pairPoll'){const p=s.pairs.find(x=>x.code===b.code&&x.secret===b.secret&&!x.used);if(!p||p.expires<Date.now())throw Error('Pairing code expired. Generate a new code.');if(p.user){p.used=true;return login(s.users.find(x=>x.id===p.user))}return {waiting:true}}
  if(b.action==='state')return {user:safe(user),history:s.workouts.filter(x=>x.user===user?.id),favorites:s.favorites.filter(x=>x.user===user?.id).map(x=>x.map)};
  if(!user)throw Error('Please sign in.');
